@@ -20,9 +20,9 @@ type DefinitionRegistry = {
 };
 export type DefinitionRegistration = Partial<Pick<DefinitionRegistry, "roles" | "factions" | "roleGroups" | "settings">>;
 export declare const registerDefinitions: (definitions: DefinitionRegistration) => void;
-export declare const registerPlayerData: (data: SelfPlayerData) => void;
+export declare const registerPlayerDataInRegistry: (data: SelfPlayerData) => void;
 export declare const registerUpdateHandlers: (handlers: UpdateHandlerRegistration) => void;
-export declare const registerRoleSkillHandlers: (handlers: RoleSkillHandlers) => void;
+export declare const registerRoleSkillHandlersInRegistry: (handlers: RoleSkillHandlers) => void;
 export declare const getRegisteredRoles: () => readonly RoleDefinition[];
 export declare const getRegisteredFactions: () => readonly FactionDefinition[];
 export declare const getRegisteredRoleGroups: () => readonly RoleGroupDefinition[];

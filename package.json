@@ -20,7 +20,7 @@
     "build:js": "node build.mjs",
     "build": "npm run clean && npm run build:types && npm run build:js",
     "version:patch": "npm version patch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run version:patch && npm run build"
   },
   "devDependencies": {
     "@kairo-ts/router": "^0.1.4",

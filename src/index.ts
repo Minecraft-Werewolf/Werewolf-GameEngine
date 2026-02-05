@@ -9,6 +9,13 @@ export {
 export { SelfPlayerData } from "./game/ingame/PlayerData";
 export { GameEventHandlerMap } from "./game/ingame/game/SkillManager";
 
+export {
+  registerDefinitions,
+  registerPlayerDataInRegistry,
+  registerRoleSkillHandlersInRegistry,
+  registerUpdateHandlers,
+} from "./game/registry";
+
 export { InGameBlockExplode } from "./game/ingame/events/BlockExplode";
 export { InGameButtonPush } from "./game/ingame/events/ButtonPush";
 export { InGameDataDrivenEntityTrigger } from "./game/ingame/events/DataDrivenEntityTrigger";

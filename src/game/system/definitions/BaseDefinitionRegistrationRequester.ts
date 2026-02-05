@@ -10,6 +10,9 @@ export abstract class BaseDefinitionRegistrationRequester<T> {
     ) {}
 
     protected request(definitions: readonly T[]): void {
+        if (definitions.length === 0) {
+            return;
+        }
         KairoUtils.sendKairoCommand(
             KAIRO_COMMAND_TARGET_ADDON_IDS.WEREWOLF_GAMEMANAGER,
             SCRIPT_EVENT_COMMAND_IDS.DEFINITIONS_REGISTRATION_REQUEST,

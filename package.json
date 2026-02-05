@@ -1,6 +1,6 @@
 {
   "name": "@mc-werewolf/game-engine",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Werewolf Game Engine on Kairo.ts",
   "type": "module",
   "license": "MIT",

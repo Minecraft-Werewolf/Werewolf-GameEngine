@@ -10,5 +10,5 @@ await esbuild.build({
 
   mainFields: ["module", "main"],
 
-  external: ["@minecraft/server", "@minecraft/server-ui"],
+  external: ["@minecraft/server", "@minecraft/server-ui", "@kairo-ts/router"],
 });

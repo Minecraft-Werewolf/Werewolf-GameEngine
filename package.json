@@ -22,6 +22,11 @@
     "version:patch": "npm version patch",
     "prepublishOnly": "npm run version:patch && npm run build"
   },
+  "peerDependencies": {
+    "@kairo-ts/router": "^0.1.4",
+    "@minecraft/server": "^2.4.0",
+    "@minecraft/server-ui": "^2.0.0"
+  },
   "devDependencies": {
     "@kairo-ts/router": "^0.1.4",
     "@minecraft/server": "^2.4.0",

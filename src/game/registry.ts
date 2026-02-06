@@ -19,7 +19,7 @@ export type UpdateHandlerRegistration = Partial<UpdateHandlers>;
 
 export type RoleSkillHandlers = Record<string, GameEventHandlerMap>;
 
-type DefinitionRegistry = {
+type DefinitionRegistryState = {
   roles: RoleDefinition[];
   factions: FactionDefinition[];
   roleGroups: RoleGroupDefinition[];
@@ -34,7 +34,7 @@ const defaultUpdateHandlers: UpdateHandlers = {
   onSecondUpdate: () => {},
 };
 
-const registry: DefinitionRegistry = {
+const registry: DefinitionRegistryState = {
   roles: [],
   factions: [],
   roleGroups: [],
@@ -45,7 +45,7 @@ const registry: DefinitionRegistry = {
 };
 
 export type DefinitionRegistration = Partial<
-  Pick<DefinitionRegistry, "roles" | "factions" | "roleGroups" | "settings">
+  Pick<DefinitionRegistryState, "roles" | "factions" | "roleGroups" | "settings">
 >;
 
 export const registerDefinitions = (

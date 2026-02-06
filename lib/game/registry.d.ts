@@ -9,7 +9,7 @@ export type UpdateHandlers = {
 };
 export type UpdateHandlerRegistration = Partial<UpdateHandlers>;
 export type RoleSkillHandlers = Record<string, GameEventHandlerMap>;
-type DefinitionRegistry = {
+type DefinitionRegistryState = {
     roles: RoleDefinition[];
     factions: FactionDefinition[];
     roleGroups: RoleGroupDefinition[];
@@ -18,11 +18,46 @@ type DefinitionRegistry = {
     updateHandlers: UpdateHandlers;
     roleSkillHandlers: RoleSkillHandlers;
 };
-export type DefinitionRegistration = Partial<Pick<DefinitionRegistry, "roles" | "factions" | "roleGroups" | "settings">>;
+export type DefinitionRegistration = Partial<Pick<DefinitionRegistryState, "roles" | "factions" | "roleGroups" | "settings">>;
 export declare const registerDefinitions: (definitions: DefinitionRegistration) => void;
 export declare const registerPlayerDataInRegistry: (data: SelfPlayerData) => void;
 export declare const registerUpdateHandlers: (handlers: UpdateHandlerRegistration) => void;
 export declare const registerRoleSkillHandlersInRegistry: (handlers: RoleSkillHandlers) => void;
+declare class RoleRegistry {
+    private constructor();
+    static create(): RoleRegistry;
+    register(roles: RoleDefinition[]): void;
+}
+declare class FactionRegistry {
+    private constructor();
+    static create(): FactionRegistry;
+    register(factions: FactionDefinition[]): void;
+}
+declare class RoleGroupRegistry {
+    private constructor();
+    static create(): RoleGroupRegistry;
+    register(roleGroups: RoleGroupDefinition[]): void;
+}
+declare class SettingRegistry {
+    private constructor();
+    static create(): SettingRegistry;
+    register(settings: SettingDefinition[]): void;
+}
+declare class PlayerRegistry {
+    private constructor();
+    static create(): PlayerRegistry;
+    register(data: SelfPlayerData): void;
+}
+declare class UpdateHandlerRegistry {
+    private constructor();
+    static create(): UpdateHandlerRegistry;
+    register(handlers: UpdateHandlerRegistration): void;
+}
+declare class RoleSkillHandlerRegistry {
+    private constructor();
+    static create(): RoleSkillHandlerRegistry;
+    register(handlers: RoleSkillHandlers): void;
+}
 export declare class DefinitionRegistry {
     private static instance;
     private readonly roleRegistry;
@@ -34,27 +69,13 @@ export declare class DefinitionRegistry {
     private readonly roleSkillHandlerRegistry;
     private constructor();
     static getInstance(): DefinitionRegistry;
-    static get roles(): {
-        register(roles: RoleDefinition[]): void;
-    };
-    static get factions(): {
-        register(factions: FactionDefinition[]): void;
-    };
-    static get roleGroups(): {
-        register(roleGroups: RoleGroupDefinition[]): void;
-    };
-    static get settings(): {
-        register(settings: SettingDefinition[]): void;
-    };
-    static get player(): {
-        register(data: SelfPlayerData): void;
-    };
-    static get updateHandlers(): {
-        register(handlers: UpdateHandlerRegistration): void;
-    };
-    static get roleSkillHandlers(): {
-        register(handlers: RoleSkillHandlers): void;
-    };
+    static get roles(): RoleRegistry;
+    static get factions(): FactionRegistry;
+    static get roleGroups(): RoleGroupRegistry;
+    static get settings(): SettingRegistry;
+    static get player(): PlayerRegistry;
+    static get updateHandlers(): UpdateHandlerRegistry;
+    static get roleSkillHandlers(): RoleSkillHandlerRegistry;
 }
 export declare const getRegisteredRoles: () => readonly RoleDefinition[];
 export declare const getRegisteredFactions: () => readonly FactionDefinition[];

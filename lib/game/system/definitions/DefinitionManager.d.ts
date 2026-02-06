@@ -1,5 +1,5 @@
 import type { SystemManager } from "../../SystemManager";
-import { DefinitionRegistryManager } from "../../registry";
+import { DefinitionRegistry } from "../../registry";
 export declare const definitionTypeValues: readonly ["role", "faction", "roleGroup", "setting"];
 export type DefinitionType = (typeof definitionTypeValues)[number];
 export declare class DefinitionManager {
@@ -12,5 +12,5 @@ export declare class DefinitionManager {
     private constructor();
     static create(systemManager: SystemManager): DefinitionManager;
     requestDefinitionsRegistration(): void;
-    getRegistryManager(): import("../../registry").DefinitionRegistry;
+    getDefinitionRegistry(): DefinitionRegistry;
 }

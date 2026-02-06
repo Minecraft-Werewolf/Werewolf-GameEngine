@@ -15,7 +15,7 @@ export type UpdateHandlers = {
   readonly onSecondUpdate: GameEventHandler;
 };
 
-type UpdateHandlerRegistration = Partial<UpdateHandlers>;
+export type UpdateHandlerRegistration = Partial<UpdateHandlers>;
 
 export type RoleSkillHandlers = Record<string, GameEventHandlerMap>;
 
@@ -83,6 +83,138 @@ export const registerRoleSkillHandlersInRegistry = (
     ...handlers,
   };
 };
+
+class RoleRegistry {
+  private constructor() {}
+
+  public static create(): RoleRegistry {
+    return new RoleRegistry();
+  }
+
+  public register(roles: RoleDefinition[]): void {
+    registerDefinitions({ roles });
+  }
+}
+
+class FactionRegistry {
+  private constructor() {}
+
+  public static create(): FactionRegistry {
+    return new FactionRegistry();
+  }
+
+  public register(factions: FactionDefinition[]): void {
+    registerDefinitions({ factions });
+  }
+}
+
+class RoleGroupRegistry {
+  private constructor() {}
+
+  public static create(): RoleGroupRegistry {
+    return new RoleGroupRegistry();
+  }
+
+  public register(roleGroups: RoleGroupDefinition[]): void {
+    registerDefinitions({ roleGroups });
+  }
+}
+
+class SettingRegistry {
+  private constructor() {}
+
+  public static create(): SettingRegistry {
+    return new SettingRegistry();
+  }
+
+  public register(settings: SettingDefinition[]): void {
+    registerDefinitions({ settings });
+  }
+}
+
+class PlayerRegistry {
+  private constructor() {}
+
+  public static create(): PlayerRegistry {
+    return new PlayerRegistry();
+  }
+
+  public register(data: SelfPlayerData): void {
+    registerPlayerDataInRegistry(data);
+  }
+}
+
+class UpdateHandlerRegistry {
+  private constructor() {}
+
+  public static create(): UpdateHandlerRegistry {
+    return new UpdateHandlerRegistry();
+  }
+
+  public register(handlers: UpdateHandlerRegistration): void {
+    registerUpdateHandlers(handlers);
+  }
+}
+
+class RoleSkillHandlerRegistry {
+  private constructor() {}
+
+  public static create(): RoleSkillHandlerRegistry {
+    return new RoleSkillHandlerRegistry();
+  }
+
+  public register(handlers: RoleSkillHandlers): void {
+    registerRoleSkillHandlersInRegistry(handlers);
+  }
+}
+
+export class DefinitionRegistry {
+  private static instance: DefinitionRegistry | null = null;
+  private readonly roleRegistry = RoleRegistry.create();
+  private readonly factionRegistry = FactionRegistry.create();
+  private readonly roleGroupRegistry = RoleGroupRegistry.create();
+  private readonly settingRegistry = SettingRegistry.create();
+  private readonly playerRegistry = PlayerRegistry.create();
+  private readonly updateHandlerRegistry = UpdateHandlerRegistry.create();
+  private readonly roleSkillHandlerRegistry = RoleSkillHandlerRegistry.create();
+
+  private constructor() {}
+
+  public static getInstance(): DefinitionRegistry {
+    if (!this.instance) {
+      this.instance = new DefinitionRegistry();
+    }
+    return this.instance;
+  }
+
+  public static get roles(): RoleRegistry {
+    return this.getInstance().roleRegistry;
+  }
+
+  public static get factions(): FactionRegistry {
+    return this.getInstance().factionRegistry;
+  }
+
+  public static get roleGroups(): RoleGroupRegistry {
+    return this.getInstance().roleGroupRegistry;
+  }
+
+  public static get settings(): SettingRegistry {
+    return this.getInstance().settingRegistry;
+  }
+
+  public static get player(): PlayerRegistry {
+    return this.getInstance().playerRegistry;
+  }
+
+  public static get updateHandlers(): UpdateHandlerRegistry {
+    return this.getInstance().updateHandlerRegistry;
+  }
+
+  public static get roleSkillHandlers(): RoleSkillHandlerRegistry {
+    return this.getInstance().roleSkillHandlerRegistry;
+  }
+}
 
 export const getRegisteredRoles = (): readonly RoleDefinition[] =>
   registry.roles;

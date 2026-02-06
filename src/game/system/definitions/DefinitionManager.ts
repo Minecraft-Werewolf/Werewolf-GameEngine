@@ -5,6 +5,7 @@ import {
     getRegisteredRoles,
     getRegisteredSettings,
 } from "../../registry";
+import { DefinitionRegistry } from "../../registry";
 import { FactionRegistrationRequester } from "./factions/FactionRegistrationRequester";
 import { RoleGroupRegistrationRequester } from "./rolegroup/RoleGroupRegistrationRequester";
 import { RoleRegistrationRequester } from "./roles/RoleRegistrationRequester";
@@ -17,6 +18,7 @@ export class DefinitionManager {
     private readonly factionRegistrationRequester = FactionRegistrationRequester.create(this);
     private readonly roleGroupRegistrationRequester = RoleGroupRegistrationRequester.create(this);
     private readonly settingRegistrationRequester = SettingRegistrationRequester.create(this);
+    private readonly registry = DefinitionRegistry.getInstance();
     private constructor(private readonly systemManager: SystemManager) {}
     public static create(systemManager: SystemManager) {
         return new DefinitionManager(systemManager);
@@ -27,5 +29,9 @@ export class DefinitionManager {
         this.factionRegistrationRequester.request(getRegisteredFactions());
         this.roleGroupRegistrationRequester.request(getRegisteredRoleGroups());
         this.settingRegistrationRequester.request(getRegisteredSettings());
+    }
+
+    public getDefinitionRegistry(): DefinitionRegistry {
+        return this.registry;
     }
 }

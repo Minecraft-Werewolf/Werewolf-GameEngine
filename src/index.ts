@@ -10,10 +10,8 @@ export { SelfPlayerData } from "./game/ingame/PlayerData";
 export { GameEventHandlerMap } from "./game/ingame/game/SkillManager";
 
 export {
-  registerDefinitions,
-  registerPlayerDataInRegistry,
-  registerRoleSkillHandlersInRegistry,
-  registerUpdateHandlers,
+  DefinitionRegistryManager,
+  UpdateHandlerRegistration,
 } from "./game/registry";
 
 export { InGameBlockExplode } from "./game/ingame/events/BlockExplode";

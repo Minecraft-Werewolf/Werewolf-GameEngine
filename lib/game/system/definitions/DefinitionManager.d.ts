@@ -1,4 +1,5 @@
 import type { SystemManager } from "../../SystemManager";
+import { DefinitionRegistryManager } from "../../registry";
 export declare const definitionTypeValues: readonly ["role", "faction", "roleGroup", "setting"];
 export type DefinitionType = (typeof definitionTypeValues)[number];
 export declare class DefinitionManager {

@@ -31,7 +31,7 @@ export class DefinitionManager {
         this.settingRegistrationRequester.request(getRegisteredSettings());
     }
 
-    public getRegistryManager(): DefinitionRegistry {
+    public getDefinitionRegistry(): DefinitionRegistry {
         return this.registry;
     }
 }

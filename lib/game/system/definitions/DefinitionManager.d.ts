@@ -8,9 +8,9 @@ export declare class DefinitionManager {
     private readonly factionRegistrationRequester;
     private readonly roleGroupRegistrationRequester;
     private readonly settingRegistrationRequester;
-    private readonly registryManager;
+    private readonly registry;
     private constructor();
     static create(systemManager: SystemManager): DefinitionManager;
     requestDefinitionsRegistration(): void;
-    getRegistryManager(): DefinitionRegistryManager;
+    getRegistryManager(): import("../../registry").DefinitionRegistry;
 }

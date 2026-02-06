@@ -10,7 +10,7 @@ export { SelfPlayerData } from "./game/ingame/PlayerData";
 export { GameEventHandlerMap } from "./game/ingame/game/SkillManager";
 
 export {
-  DefinitionRegistryManager,
+  DefinitionRegistry,
   UpdateHandlerRegistration,
 } from "./game/registry";
 

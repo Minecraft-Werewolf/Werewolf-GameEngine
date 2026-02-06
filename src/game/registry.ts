@@ -168,23 +168,51 @@ class RoleSkillHandlerRegistry {
   }
 }
 
-export class DefinitionRegistryManager {
-  private static instance: DefinitionRegistryManager | null = null;
-  public readonly roles = RoleRegistry.create();
-  public readonly factions = FactionRegistry.create();
-  public readonly roleGroups = RoleGroupRegistry.create();
-  public readonly settings = SettingRegistry.create();
-  public readonly player = PlayerRegistry.create();
-  public readonly updateHandlers = UpdateHandlerRegistry.create();
-  public readonly roleSkillHandlers = RoleSkillHandlerRegistry.create();
+export class DefinitionRegistry {
+  private static instance: DefinitionRegistry | null = null;
+  private readonly roleRegistry = RoleRegistry.create();
+  private readonly factionRegistry = FactionRegistry.create();
+  private readonly roleGroupRegistry = RoleGroupRegistry.create();
+  private readonly settingRegistry = SettingRegistry.create();
+  private readonly playerRegistry = PlayerRegistry.create();
+  private readonly updateHandlerRegistry = UpdateHandlerRegistry.create();
+  private readonly roleSkillHandlerRegistry = RoleSkillHandlerRegistry.create();
 
   private constructor() {}
 
-  public static create(): DefinitionRegistryManager {
+  public static getInstance(): DefinitionRegistry {
     if (!this.instance) {
-      this.instance = new DefinitionRegistryManager();
+      this.instance = new DefinitionRegistry();
     }
     return this.instance;
+  }
+
+  public static get roles(): RoleRegistry {
+    return this.getInstance().roleRegistry;
+  }
+
+  public static get factions(): FactionRegistry {
+    return this.getInstance().factionRegistry;
+  }
+
+  public static get roleGroups(): RoleGroupRegistry {
+    return this.getInstance().roleGroupRegistry;
+  }
+
+  public static get settings(): SettingRegistry {
+    return this.getInstance().settingRegistry;
+  }
+
+  public static get player(): PlayerRegistry {
+    return this.getInstance().playerRegistry;
+  }
+
+  public static get updateHandlers(): UpdateHandlerRegistry {
+    return this.getInstance().updateHandlerRegistry;
+  }
+
+  public static get roleSkillHandlers(): RoleSkillHandlerRegistry {
+    return this.getInstance().roleSkillHandlerRegistry;
   }
 }
 

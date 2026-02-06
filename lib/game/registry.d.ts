@@ -23,29 +23,50 @@ export declare const registerDefinitions: (definitions: DefinitionRegistration) 
 export declare const registerPlayerDataInRegistry: (data: SelfPlayerData) => void;
 export declare const registerUpdateHandlers: (handlers: UpdateHandlerRegistration) => void;
 export declare const registerRoleSkillHandlersInRegistry: (handlers: RoleSkillHandlers) => void;
+declare class RoleRegistry {
+    private constructor();
+    static create(): RoleRegistry;
+    register(roles: RoleDefinition[]): void;
+}
+declare class FactionRegistry {
+    private constructor();
+    static create(): FactionRegistry;
+    register(factions: FactionDefinition[]): void;
+}
+declare class RoleGroupRegistry {
+    private constructor();
+    static create(): RoleGroupRegistry;
+    register(roleGroups: RoleGroupDefinition[]): void;
+}
+declare class SettingRegistry {
+    private constructor();
+    static create(): SettingRegistry;
+    register(settings: SettingDefinition[]): void;
+}
+declare class PlayerRegistry {
+    private constructor();
+    static create(): PlayerRegistry;
+    register(data: SelfPlayerData): void;
+}
+declare class UpdateHandlerRegistry {
+    private constructor();
+    static create(): UpdateHandlerRegistry;
+    register(handlers: UpdateHandlerRegistration): void;
+}
+declare class RoleSkillHandlerRegistry {
+    private constructor();
+    static create(): RoleSkillHandlerRegistry;
+    register(handlers: RoleSkillHandlers): void;
+}
 export declare class DefinitionRegistryManager {
     private static instance;
-    readonly roles: {
-        register(roles: RoleDefinition[]): void;
-    };
-    readonly factions: {
-        register(factions: FactionDefinition[]): void;
-    };
-    readonly roleGroups: {
-        register(roleGroups: RoleGroupDefinition[]): void;
-    };
-    readonly settings: {
-        register(settings: SettingDefinition[]): void;
-    };
-    readonly player: {
-        register(data: SelfPlayerData): void;
-    };
-    readonly updateHandlers: {
-        register(handlers: UpdateHandlerRegistration): void;
-    };
-    readonly roleSkillHandlers: {
-        register(handlers: RoleSkillHandlers): void;
-    };
+    readonly roles: RoleRegistry;
+    readonly factions: FactionRegistry;
+    readonly roleGroups: RoleGroupRegistry;
+    readonly settings: SettingRegistry;
+    readonly player: PlayerRegistry;
+    readonly updateHandlers: UpdateHandlerRegistry;
+    readonly roleSkillHandlers: RoleSkillHandlerRegistry;
     private constructor();
     static create(): DefinitionRegistryManager;
 }

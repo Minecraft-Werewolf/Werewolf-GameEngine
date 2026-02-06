@@ -7,7 +7,7 @@ export type UpdateHandlers = {
     readonly onTickUpdate: GameEventHandler;
     readonly onSecondUpdate: GameEventHandler;
 };
-type UpdateHandlerRegistration = Partial<UpdateHandlers>;
+export type UpdateHandlerRegistration = Partial<UpdateHandlers>;
 export type RoleSkillHandlers = Record<string, GameEventHandlerMap>;
 type DefinitionRegistry = {
     roles: RoleDefinition[];
@@ -23,6 +23,32 @@ export declare const registerDefinitions: (definitions: DefinitionRegistration) 
 export declare const registerPlayerDataInRegistry: (data: SelfPlayerData) => void;
 export declare const registerUpdateHandlers: (handlers: UpdateHandlerRegistration) => void;
 export declare const registerRoleSkillHandlersInRegistry: (handlers: RoleSkillHandlers) => void;
+export declare class DefinitionRegistryManager {
+    private static instance;
+    readonly roles: {
+        register(roles: RoleDefinition[]): void;
+    };
+    readonly factions: {
+        register(factions: FactionDefinition[]): void;
+    };
+    readonly roleGroups: {
+        register(roleGroups: RoleGroupDefinition[]): void;
+    };
+    readonly settings: {
+        register(settings: SettingDefinition[]): void;
+    };
+    readonly player: {
+        register(data: SelfPlayerData): void;
+    };
+    readonly updateHandlers: {
+        register(handlers: UpdateHandlerRegistration): void;
+    };
+    readonly roleSkillHandlers: {
+        register(handlers: RoleSkillHandlers): void;
+    };
+    private constructor();
+    static create(): DefinitionRegistryManager;
+}
 export declare const getRegisteredRoles: () => readonly RoleDefinition[];
 export declare const getRegisteredFactions: () => readonly FactionDefinition[];
 export declare const getRegisteredRoleGroups: () => readonly RoleGroupDefinition[];

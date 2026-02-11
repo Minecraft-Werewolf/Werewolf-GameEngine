@@ -1,6 +1,6 @@
 {
   "name": "@mc-werewolf/game-module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Werewolf Game Module on Kairo.ts",
   "type": "module",
   "license": "MIT",

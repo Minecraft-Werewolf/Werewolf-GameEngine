@@ -1,4 +1,4 @@
-import { type KairoResponse } from "@kairo-ts/router";
+import { type KairoResponse } from "@kairo-js/router";
 import type { SelfPlayerData } from "../PlayerData";
 import type { GameEventType, RoleDefinition } from "../../../constants/types";
 import type { InGameManager } from "../InGameManager";

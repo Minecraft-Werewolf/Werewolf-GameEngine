@@ -1,4 +1,4 @@
-import type { KairoCommand, KairoResponse } from "@kairo-ts/router";
+import type { KairoCommand, KairoResponse } from "@kairo-js/router";
 import { type SystemManager } from "../SystemManager";
 export declare class ScriptEventReceiver {
     private readonly systemManager;

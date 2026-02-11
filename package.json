@@ -1,7 +1,7 @@
 {
-  "name": "@mc-werewolf/game-engine",
-  "version": "0.1.6",
-  "description": "Werewolf Game Engine on Kairo.ts",
+  "name": "@mc-werewolf/game-module",
+  "version": "0.1.0",
+  "description": "Werewolf Game Module on Kairo.ts",
   "type": "module",
   "license": "MIT",
   "main": "lib/index.js",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:Minecraft-Werewolf/Werewolf-GameEngine.git"
+    "url": "git@github.com:mc-werewolf/game-module.git"
   },
   "scripts": {
     "clean": "rimraf lib",
@@ -23,13 +23,13 @@
     "prepublishOnly": "npm run version:patch && npm run build"
   },
   "peerDependencies": {
-    "@kairo-ts/router": "^0.1.4",
-    "@minecraft/server": "^2.4.0",
+    "@kairo-js/router": "^0.1.1",
+    "@minecraft/server": "^2.5.0",
     "@minecraft/server-ui": "^2.0.0"
   },
   "devDependencies": {
-    "@kairo-ts/router": "^0.1.4",
-    "@minecraft/server": "^2.4.0",
+    "@kairo-js/router": "^0.1.1",
+    "@minecraft/server": "^2.5.0",
     "@minecraft/server-ui": "^2.0.0",
     "esbuild": "^0.20.0",
     "rimraf": "^5.0.0",

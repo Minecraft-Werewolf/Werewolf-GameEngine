@@ -22,6 +22,7 @@ export declare class SystemManager {
     init(): void;
     private static instance;
     static getInstance(): SystemManager;
+    static destroy(): void;
     handleScriptEvent(data: KairoCommand): Promise<void | KairoResponse>;
     subscribeEvents(): void;
     unsubscribeEvents(): void;
